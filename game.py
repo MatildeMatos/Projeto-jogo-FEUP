@@ -59,14 +59,14 @@ obstacle3 = obstacle3.resize(list(map(lambda x:x//2 -2 , obstacle3.size)))
 obstacle4 = Image.open("carro.png").convert("RGBA")
 obstacle4 = obstacle4.resize(list(map(lambda x:x//2 -2, obstacle4.size)))
 
-obstacle5 = Image.open("buraco.png").crop((653,2,701,101)).convert("RGBA")
-obstacle5 = obstacle5.resize(list(map(lambda x:x//2, obstacle5.size)))
+obstacle5 = Image.open("buraco.png").convert("RGBA")
+obstacle5 = obstacle5.resize(list(map(lambda x:x//2 -20, obstacle5.size)))
 
-obstacle5 = Image.open("buraco.png").crop((653,2,749,101)).convert("RGBA")
-obstacle5 = obstacle5.resize(list(map(lambda x:x//2 , obstacle5.size)))
+obstacle5 = Image.open("buraco.png").convert("RGBA")
+obstacle5 = obstacle5.resize(list(map(lambda x:x//2 -20, obstacle5.size)))
 
-obstacle6 = Image.open("buraco.png").crop((851,2,950,101)).convert("RGBA")
-obstacle6 = obstacle6.resize(list(map(lambda x:x//2 , obstacle6.size)))
+obstacle6 = Image.open("buraco.png").convert("RGBA")
+obstacle6 = obstacle6.resize(list(map(lambda x:x//2 -20, obstacle6.size)))
 
 
 speed_identifier = lambda x: 2 if x >= 30 else 8 if x < 8 else 5
