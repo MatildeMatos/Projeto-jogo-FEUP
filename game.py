@@ -9,6 +9,16 @@ import time
 pygame.init()
 speed = 3
 
+def end_game():
+    screen = pygame.display.set_mode((600,200))
+    font = pygame.font.Font('freesansbold.ttf', 32)
+    text = font.render('Game Over', True, "green", "blue")
+    screen.blit(text,(200,100))
+    pygame.display.update()
+
+    time.sleep(2)
+
+
 
 
 # extracting game items and characters form the resource.png image.
@@ -60,13 +70,13 @@ obstacle4 = Image.open("carro.png").convert("RGBA")
 obstacle4 = obstacle4.resize(list(map(lambda x:x//2 -2, obstacle4.size)))
 
 obstacle5 = Image.open("buraco.png").convert("RGBA")
-obstacle5 = obstacle5.resize(list(map(lambda x:x//1 , obstacle5.size)))
+obstacle5 = obstacle5.resize(list(map(lambda x:x//1 +20, obstacle5.size)))
 
 obstacle5 = Image.open("buraco.png").convert("RGBA")
-obstacle5 = obstacle5.resize(list(map(lambda x:x//1 -30, obstacle5.size)))
+obstacle5 = obstacle5.resize(list(map(lambda x:x//1 +20, obstacle5.size)))
 
 obstacle6 = Image.open("buraco.png").convert("RGBA")
-obstacle6 = obstacle6.resize(list(map(lambda x:x//1 -20, obstacle6.size)))
+obstacle6 = obstacle6.resize(list(map(lambda x:x//1 +20, obstacle6.size)))
 
 
 speed_identifier = lambda x: 2 if x >= 30 else 8 if x < 8 else 5
@@ -189,13 +199,16 @@ while not crashed:
             if -bg[0]>=600:bg1 = (600,150)
 
         if obs1_cub[0]<=player_stading_cub[2]-10<=obs1_cub[2] and obs1_cub[1]<=player_stading_cub[3]-10<=obs1_cub[3]-5:
-            start=False
-            state = player_frame_4
+
+            end_game()
+            break
         if obs2_cub[0]<=player_stading_cub[2]-10<=obs2_cub[2] and obs2_cub[1]<=player_stading_cub[3]-10<=obs2_cub[3]-5:
-            start=False
-            state = player_frame_4
+
+            end_game()
+            break
         if obs3_cub[0]<=player_stading_cub[2]-10<=obs3_cub[2] and obs3_cub[1]<=player_stading_cub[3]-10<=obs3_cub[3]-5:
-            start=False
-            state = player_frame_4
+
+            end_game()
+            break
     pygame.display.update()
     clock.tick(120)
